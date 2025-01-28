@@ -7,7 +7,7 @@ const URL=require("./models/url");
 const path=require("path");
 const cookieParser=require("cookie-parser");
 const { checkForAuthentication, restrictTo } = require("./middleware/auth");
-
+const cors = require('cors');
 
 
 const app=express();
@@ -23,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(checkForAuthentication);
+app.use(cors());
 
 
 //route
